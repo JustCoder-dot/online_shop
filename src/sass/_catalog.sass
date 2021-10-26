@@ -1,0 +1,61 @@
+.catalog
+    padding-top: 120px
+    width: 100%
+    height: 100vh
+    position: fixed
+    background-color: rgba(0,0,0,0.5)
+    top: 0
+    left: 0
+    z-index: 20
+    // width: 100%
+    // height: 100%
+    // overflow: auto
+    &__container
+        background-color: #fff
+        z-index: 25
+        height: 650px
+        overflow: auto
+        width: 90%
+        margin:  0 auto 
+    &__inner
+        // overflow: auto
+        gap: 30px
+        flex-wrap: wrap
+        padding: 0 2% 
+        display: flex
+        justify-content: space-evenly
+    &__item
+        padding-bottom: 40px 
+        width: 20%
+    &__tittle-block
+        display: flex
+        align-items: center
+        width: 100%
+        height: auto 
+        display: flex
+    &__tittle-img
+        width: 50%
+        height: 30%
+
+        img
+            width: 100%
+            height: 100% 
+    &__tittle-value 
+        a
+            color: #333
+            text-decoration: none
+            font-weight: 500
+        a:hover
+            color: #76BC21        
+    &__links 
+
+    &__link
+        display: block
+        width: 100%
+        a
+            margin-top: 3%
+            display: block
+            color: #333 
+            text-decoration: none
+        a:hover
+            color: #76BC21   

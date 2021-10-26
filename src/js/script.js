@@ -83,16 +83,37 @@ $(document).ready(function(){
     
     window.addEventListener('resize', changes);
   function changes(){
-    const screen = window.matchMedia('(min-width: 1200px)');
-    if(!screen.matches){
-      const search = document.querySelector('.form-block');
-      console.log(search);
-      search.addEventListener('click',()=>{
-        // search.classList.add('no-before');
-        console.log('1');
+    const navLinks = document.querySelector('.navigation__links');
+    const formBlock = document.querySelector('.form-block');
+    const formBlockForm = document.querySelector('.form-block form');
+    const screen = window.innerWidth;
+    // console.log(screen);
+    if(screen < 1200){
+      formBlock.addEventListener('click', function(){
+        navLinks.style.display = 'none';
+        formBlockForm.style.display = 'block';
+        formBlock.style.cssText = `
+        display: block;
+        position: static;        
+        top: auto;
+        left: auto;
+        margin: 0;
+        padding: 25px 0 0 20px;`
+        if(formBlock.classList.contains('no-before') == false){
+          formBlock.classList.add('no-before')
+        }
+      })
+    }
+    }
+    // if(!screen.matches){
+    //   const search = document.querySelector('.form-block');
+    //   // console.log(search);
+    //   search.addEventListener('click',()=>{
+    //     search.classList.add('no-before');
+    //     console.log('1');
         
         
-      });
+    //   });
       
       // search.addEventListener('click', ()=>{
         // search.classList.add('no-before');
@@ -103,6 +124,4 @@ $(document).ready(function(){
           
         // }
       // });
-    }
-  }  
   });

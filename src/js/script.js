@@ -86,7 +86,23 @@ $(document).ready(function(){
     const screen = window.matchMedia('(min-width: 1200px)');
     if(!screen.matches){
       const search = document.querySelector('.form-block');
-      search.classList.add('no-before');
+      console.log(search);
+      search.addEventListener('click',()=>{
+        // search.classList.add('no-before');
+        console.log('1');
+        
+        
+      });
+      
+      // search.addEventListener('click', ()=>{
+        // search.classList.add('no-before');
+        // if(search.classList.contains('no-before')){
+        //   console.log('1');
+        // }else{
+        //   console.log('2');
+          
+        // }
+      // });
     }
   }  
   });

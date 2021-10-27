@@ -81,30 +81,39 @@ $(document).ready(function(){
     const catalog = document.querySelectorAll('.catalog__link');
     catalog.forEach( (item)=> hider(item));
     
-    window.addEventListener('resize', changes);
-  function changes(){
-    const navLinks = document.querySelector('.navigation__links');
-    const formBlock = document.querySelector('.form-block');
-    const formBlockForm = document.querySelector('.form-block form');
-    const screen = window.innerWidth;
-    // console.log(screen);
-    if(screen < 1200){
-      formBlock.addEventListener('click', function(){
-        navLinks.style.display = 'none';
-        formBlockForm.style.display = 'block';
-        formBlock.style.cssText = `
-        display: block;
-        position: static;        
-        top: auto;
-        left: auto;
-        margin: 0;
-        padding: 25px 0 0 20px;`
-        if(formBlock.classList.contains('no-before') == false){
-          formBlock.classList.add('no-before')
-        }
-      })
-    }
-    }
+    const navigationLink = document.querySelectorAll('.navigation__item a');
+    const navigationLinks = document.querySelector('.navigation__links');
+    // window.addEventListener('resize',()=>{
+    //   const screen = window.innerWidth;
+    //   if(screen < 1000){
+    //     console.log('1');
+    //     navigationLink.forEach(item =>{
+    //       item.innerHTML = '';
+    //     });
+
+    //   }
+    // });
+    
+  //   window.addEventListener('resize', changes);
+  // function changes(){
+  //   const navLinks = document.querySelector('.navigation__links');
+  //   const formBlock = document.querySelector('.form-block');
+  //   const formBlockForm = document.querySelector('.form-block form');
+  //   const screen = window.innerWidth;
+  //   // console.log(screen);
+  //   if(screen < 1200){
+  //     formBlock.addEventListener('click', function(){
+  //       navLinks.style.display = 'none';
+  //       formBlockForm.style.display = 'block';
+  //       if(formBlock.classList.contains('normalize') == false){
+  //         formBlock.classList.add('normalize');
+  //       }
+  //       if(formBlock.classList.contains('no-before') == false){
+  //         formBlock.classList.add('no-before');
+  //       }
+  //     })
+  //   }
+  //   }
     // if(!screen.matches){
     //   const search = document.querySelector('.form-block');
     //   // console.log(search);

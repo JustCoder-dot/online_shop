@@ -10,6 +10,8 @@
 @import 'media'
 @import 'catalog'
 @import 'copyright'
+@import 'adaptive'
+@import 'fixedmenu'
 *
     margin: 0
     padding: 0
@@ -27,34 +29,32 @@ body
 .slick-track
     display: flex
 .slick-next
-    cursor: pointer
-    display: flex
-    justify-content: center
-    align-items: center
+    font-size: 30px
+    width: 40px
+    height: 30px
+    display: block
+    top: -25px
+    right: 10px
     position: absolute
-    width: 3%
-    top: -10%
-    right: 0
+    cursor: pointer
     border: none
     background-color: #fff
-    img
-        width: 100%
-        height: 100%
+    color: #333
+    font-family: 'icomoon'
 .slick-prev
     cursor: pointer
-    display: flex
-    justify-content: center
-    align-items: center
-    background-color: #fff
-    border: none
+    font-size: 30px
+    width: 40px
+    height: 30px
+    display: block
+    top: -25px
+    right: 60px
     position: absolute
-    width: 3%
-    top: -10%
-    right: 4%
-    img
-        width: 100%
-        height: 100%
-
+    cursor: pointer
+    border: none
+    background-color: #fff
+    color: #333
+    font-family: 'icomoon'
 .hide
     display: none
 

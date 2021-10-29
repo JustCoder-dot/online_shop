@@ -1,15 +1,43 @@
 
-
-$(document).ready(function(){
-    $('.mobile__items').slick({
-        infinite: true,
-        slidesToShow: 6,
-        slidesToScroll: 1,
-        nextArrow:'<button type="button" class="slick-btn slick-next"><img src="icons/next-arrow.png"></button>',
-        prevArrow:'<button type="button" class="slick-btn slick-prev"><img src="icons/prev-arrow.png"></button>',
+    $(document).ready(function(){
+      $('.mobile__items').slick({
+          infinite: true,
+          slidesToShow: 6,
+          slidesToScroll: 1,
+          swipeToSlide: true,
+          nextArrow:'<button type="button" class="slick-btn icon-arrow-right slick-next"></button>',
+          prevArrow:'<button type="button" class="slick-btn icon-arrow-left slick-prev"></button>',
+          responsive: [
+            {
+              breakpoint: 1500,
+              settings: {
+                swipeToSlide: true,
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                infinite: true,
+              }
+            },
+            {
+              breakpoint: 1200,
+              settings: {
+                swipeToSlide: true,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                infinite: true,
+              }
+            },
+            {
+              breakpoint: 600,
+              settings: {
+                swipeToSlide: true,
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                infinite: true,
+              }
+            }
+          ]
+        });
     });
-  });
-  
   window.addEventListener('DOMContentLoaded', ()=>{
     const catalogBtn = document.querySelector('.navigation__catalog'),
     burgerMenu = document.querySelector('.burger');
@@ -75,62 +103,54 @@ $(document).ready(function(){
 
     }
   }
-    
-    const navBtn = document.querySelector('.navigation__catalog-btn');
-    
     const catalog = document.querySelectorAll('.catalog__link');
     catalog.forEach( (item)=> hider(item));
-    
-    const navigationLink = document.querySelectorAll('.navigation__item a');
-    const navigationLinks = document.querySelector('.navigation__links');
-    // window.addEventListener('resize',()=>{
-    //   const screen = window.innerWidth;
-    //   if(screen < 1000){
-    //     console.log('1');
-    //     navigationLink.forEach(item =>{
-    //       item.innerHTML = '';
-    //     });
-
-    //   }
-    // });
-    
-  //   window.addEventListener('resize', changes);
-  // function changes(){
-  //   const navLinks = document.querySelector('.navigation__links');
-  //   const formBlock = document.querySelector('.form-block');
-  //   const formBlockForm = document.querySelector('.form-block form');
-  //   const screen = window.innerWidth;
-  //   // console.log(screen);
-  //   if(screen < 1200){
-  //     formBlock.addEventListener('click', function(){
-  //       navLinks.style.display = 'none';
-  //       formBlockForm.style.display = 'block';
-  //       if(formBlock.classList.contains('normalize') == false){
-  //         formBlock.classList.add('normalize');
-  //       }
-  //       if(formBlock.classList.contains('no-before') == false){
-  //         formBlock.classList.add('no-before');
-  //       }
-  //     })
-  //   }
-  //   }
-    // if(!screen.matches){
-    //   const search = document.querySelector('.form-block');
-    //   // console.log(search);
-    //   search.addEventListener('click',()=>{
-    //     search.classList.add('no-before');
-    //     console.log('1');
-        
-        
-    //   });
+  
+  
+  // dots 
+  dots('.blocks__item', '.blocksdots')
+  function dots (slides, dots){
+    const slide = document.querySelectorAll(slides);
+    const length = slide.length;
+    const dotsblock  = document.querySelector(dots);
+    let i = 0;
+    while(i < length){
+      const dot = document.createElement('div');
+      dot.className = 'dot';
+      dot.setAttribute('id', `blocksDotsId${i}`);
+      dot.style.cssText = `
+      width : 15px;
+      height: 15px;
+      background-color: #333;
+      border-radius: 50%;
+      margin: 0 5px;
+      `;
+      i++;
       
-      // search.addEventListener('click', ()=>{
-        // search.classList.add('no-before');
-        // if(search.classList.contains('no-before')){
-        //   console.log('1');
-        // }else{
-        //   console.log('2');
-          
-        // }
-      // });
+      dotsblock.append(dot);
+    }
+  }
+  dotsClick('.dot', '.blocks__container', '.blocks__items');
+  function dotsClick(dotClass, container, inner){
+    const dots = document.querySelectorAll(dotClass);
+    const blockContainer = document.querySelector(container);
+    const width = window.getComputedStyle(blockContainer).width;
+    const innerBlock = document.querySelector(inner);
+
+    dots.forEach(item =>{
+      item.addEventListener('click', (e)=>{
+        const target = e.target;
+        let number = +target.id.slice(target.id.length-1 ,target.id.length);
+        // console.log(e.target.id.slice(e.target.id.length-1 , e.target.id.length));
+        console.log(number);
+        console.log(+width.slice(0, width.length -2));
+        console.log(`-${number * (+width.slice(0, width.length -2))}px)`);
+        
+        innerBlock.style.transform = `translateX(-${number * (+width.slice(0, width.length -2))}px)`;
+        
+
+        
+      });
+    });
+  }
   });

@@ -1,4 +1,5 @@
 .navigation
+    padding: 0 15px
     height: 80px
     width: 100%
     // display: flex
@@ -13,6 +14,7 @@
         display: flex
         justify-content: space-around
     &__item
+        height: 100%
         margin-left: 10px      
     &__logo
         font-size: 35px
@@ -83,6 +85,11 @@
         display: flex
         justify-content: space-between
         align-items: flex-end
+    &__link
+        height: 100%
+        display: block
+        span
+            display: none
     &__link::before
         color: #000
         font-family: 'icomoon'
